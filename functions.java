@@ -25,11 +25,24 @@ public class functions {
         }
         return add;
     }
-    public static int isprime(int num){
-        // if (num&2) {
-            
-        // }
-        return 0;
+    public static boolean isprime(int num){
+        if(num<=1){
+            return false;
+        }
+        if ((num==2)||(num==3)) {
+            return true;
+        }
+        if ((num%2==0)||(num%3==0)) {
+            return false;
+        }
+        int until,ftr;
+        until=(int)Math.sqrt(num);
+        for (ftr=5;ftr<=until;ftr+=6) {
+            if ((num%ftr==0)||(num%(ftr+2)==0)) {
+                return false;
+            }
+        }
+        return true;
     }
     public static int perfect_square(){
         return 0;
@@ -41,5 +54,6 @@ public class functions {
         System.out.println("Power of 2 is: "+powerof2(num,expo));
         System.out.println("No of digits is: "+no_of_digits(num));
         System.out.println("sum of digits is: "+sum_of_digits(num));
+        System.out.println("is prime: "+isprime(num));
     }
 }
